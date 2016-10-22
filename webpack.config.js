@@ -2,20 +2,31 @@
  * heyihuan
  */
 var path = require('path');
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
+var postcsscenter = require('postcss-center');
 module.exports = {
+    devtool: 'source-map',
     entry: {
-        '/dist/js/main':'./js/main.js',
-        '/dist/js/index':'./js/index.js',
-        '/dist/js/public':['./lib/jquery.min.js'],
+        '/js/main':'./js/main.js',
+        '/js/index':'./js/index.js',
+        '/js/public':['./lib/jquery.min.js'],
+
     },
     output: {
-        path: "./", // 输出文件的保存路径
-        filename: '[name].build.js' // 输出文件的名称
+        path: "./dist/", // 输出文件的保存路径
+        filename: '[name].build.js', // 输出文件的名称
+        sourceMapFilename:'/map/[file].map'
     },
     module: {
         loaders: [
-            { test: /\.css$/, loaders: 'style!css!autoprefixer?{browsers:["last 2 version", "> 1%"]}' }
+            {
+                test:  /\.css$/,
+                loader: 'style-loader!css-loader!postcss-loader',
+            }
         ]
     },
-    watch: true
+    postcss: function () {
+        return [precss, autoprefixer, postcsscenter];
+    }
   }

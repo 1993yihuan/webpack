@@ -1,1 +1,10 @@
 *{background: #e6e6e6;}
+.a{
+    background: red;
+    display: flex;
+    font-size: 30px;
+    .b{
+        background: blue;
+        left: center;
+    }
+ }
