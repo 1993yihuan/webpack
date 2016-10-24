@@ -1,6 +1,7 @@
 /**
  * heyihuan
  */
+var webpack = require('webpack');
 var path = require('path');
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
@@ -8,9 +9,9 @@ var postcsscenter = require('postcss-center');
 module.exports = {
     devtool: 'source-map',
     entry: {
-        '/js/main':'./js/main.js',
-        '/js/index':'./js/index.js',
-        '/js/public':['./lib/jquery.min.js'],
+        main:'./js/main.js',
+        index:'./js/index.js',
+        public:['./lib/jquery.min.js'],
 
     },
     output: {
@@ -26,6 +27,14 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new webpack.BannerPlugin('build in '+new Date().toLocaleString()+' by heyihuan'),
+        new webpack.ProvidePlugin({
+            $:"jquery",
+            jQuery:"jquery",
+            "window.jQuery":"jquery"
+        })
+    ],
     postcss: function () {
         return [precss, autoprefixer, postcsscenter];
     }
