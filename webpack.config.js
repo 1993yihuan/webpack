@@ -17,7 +17,7 @@ module.exports = {
     output: {
         path: "./dist/", // 输出文件的保存路径
         filename: '[name].build.js', // 输出文件的名称
-        sourceMapFilename:'/map/[file].map'
+        sourceMapFilename:'map/[file].map'
     },
     module: {
         loaders: [

@@ -1,6 +1,14 @@
 
 require ('../css/index.css');
-console.log('a');
+require ('../css/swiper.css');
+require('../lib/base.js');
+require('./part.js');
+require('../lib/swiper.jquery.js');
+
 $(function(){
-    $('body').css('opacity',0.3);
+    console.log(2);
+    $('.a').css('opacity',0.3);
+    var swiper = new Swiper('.swiper-container',{
+        autoplay : 5000
+    });
 })
