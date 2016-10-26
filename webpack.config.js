@@ -6,6 +6,7 @@ var path = require('path');
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
 var postcsscenter = require('postcss-center');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     devtool: 'source-map',
     entry: {
@@ -16,19 +17,21 @@ module.exports = {
     },
     output: {
         path: "./dist/", // 输出文件的保存路径
-        filename: '[name].build.js', // 输出文件的名称
+        filename: 'js/[name].build.js', // 输出文件的名称
         sourceMapFilename:'map/[file].map'
     },
     module: {
         loaders: [
             {
                 test:  /\.css$/,
-                loader: 'style-loader!css-loader!postcss-loader',
+                // loader: 'style-loader!css-loader!postcss-loader',
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap", "postcss-loader")
             }
         ]
     },
     plugins: [
         new webpack.BannerPlugin('build in '+new Date().toLocaleString()+' by heyihuan'),
+        new ExtractTextPlugin('./css/[name].css'),
         new webpack.ProvidePlugin({
             $:"jquery",
             jQuery:"jquery",

@@ -1,4 +1,4 @@
-*{background: #e6e6e6;}
+*{ background: #e6e6e6; margin: 0px; padding: 0px;}
 .a{
     background: red;
     display: flex;
