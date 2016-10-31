@@ -1,1 +1,2 @@
-console.log('2')
+require ('../css/index.css');
+console.log('这是index页面js')

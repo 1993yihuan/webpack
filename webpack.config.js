@@ -31,7 +31,7 @@ module.exports = {
     },
     plugins: [
         new webpack.BannerPlugin('build in '+new Date().toLocaleString()+' by heyihuan'),
-        new ExtractTextPlugin('./css/[name].css'),
+        new ExtractTextPlugin('./css/[name].build.css'),
         new webpack.ProvidePlugin({
             $:"jquery",
             jQuery:"jquery",
