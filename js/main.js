@@ -2,7 +2,7 @@
 require ('../css/index.css');
 require ('../css/swiper.css');
 require('../lib/base.js');
-require('./part.js');
+require('./part');
 require('../lib/swiper.jquery.js');
 
 $(function(){
