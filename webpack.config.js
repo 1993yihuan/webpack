@@ -14,8 +14,7 @@ module.exports = {
     entry: {
         main:'./js/main.js',
         index:'./js/index.js',
-        public:['./lib/jquery.min.js'],
-
+        public:['./lib/jquery.js'],
     },
     output: {
         path: "./dist/", // 输出文件的保存路径
