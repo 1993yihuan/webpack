@@ -28,6 +28,7 @@
     "clean-webpack-plugin": "^0.1.13",
     "css-loader": "^0.25.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.24.1",
     "jquery": "^3.1.1",
     "postcss-center": "^1.0.0",
     "postcss-loader": "^0.13.0",
