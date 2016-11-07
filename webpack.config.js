@@ -3,9 +3,14 @@
  */
 var webpack = require('webpack');
 var path = require('path');
+
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
 var postcsscenter = require('postcss-center');
+var postcssmixins = require('postcss-mixins');
+var postcssnested = require('postcss-nested');
+var postcssvars = require('postcss-simple-vars');
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -64,12 +69,12 @@ module.exports = {
         loaders: [
             {
                 test:  /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap", "postcss-loader")
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader?sourceMap")
             }
         ]
     },
     plugins: pluginsArr,
     postcss: function () {
-        return [precss, autoprefixer, postcsscenter];
+        return [precss, autoprefixer, postcsscenter, postcssmixins, postcssnested, postcssvars];
     }
  }
