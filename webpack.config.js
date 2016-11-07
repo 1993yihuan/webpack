@@ -10,6 +10,8 @@ var postcsscenter = require('postcss-center');
 var postcssmixins = require('postcss-mixins');
 var postcssnested = require('postcss-nested');
 var postcssvars = require('postcss-simple-vars');
+var postcssfor = require('postcss-for');
+var postcsscalc = require('postcss-calc');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -30,14 +32,7 @@ var pluginsArr = [
         jQuery:"jquery",
         "window.jQuery":"jquery"
     }),//全局jqury文件
-    // new HtmlWebpackPlugin({
-    //    title: 'Custom template',
-    //    filename: './html-plugin.html',
-    //    template: './html-plugin.html', // Load a custom template
-    //    inject: 'head', // Inject all scripts into the body
-    //    chunks: ['index']
-    // }),
-    new CleanWebpackPlugin('dist')//清空输出文件夹
+    // new CleanWebpackPlugin('dist')//清空输出文件夹
 ];
 
 var pageArr = [
@@ -75,6 +70,6 @@ module.exports = {
     },
     plugins: pluginsArr,
     postcss: function () {
-        return [precss, autoprefixer, postcsscenter, postcssmixins, postcssnested, postcssvars];
+        return [precss, autoprefixer, postcsscenter, postcssnested, postcssfor, postcsscalc, postcssvars ];
     }
  }

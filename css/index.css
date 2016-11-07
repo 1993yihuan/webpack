@@ -1,3 +1,4 @@
+/*mixin exmple*/
 @define-mixin icon $network, $color: blue {
     .icon.is-$(network) {
         color: $color;
@@ -16,14 +17,32 @@
     background: red;
 }
 
-@define-mixin betascreen $min, $max {
+/*mixin*/
+/*@define-mixin betascreen $min, $max {
     @media screen and (min-width: $(min)) and (max-width: $(max)) {
-        background:red;
         @mixin-content;
     }
 }
 @mixin betascreen 300px,500px{
     color: blue;
+}*/
+
+@define-mixin betascreen $max {
+    @media screen and (max-width: $(max)) {
+        @mixin-content;
+    }
+}
+
+/*for*/
+@for $i from 500 to 300 by 100 {
+    @mixin betascreen $(i)px{
+        .a{
+            width: calc($(i)+50)px;
+            .b{
+                width: calc($(i)+10)px;
+            }
+        }
+    }
 }
 
 *{ background: #e6e6e6; margin: 0px; padding: 0px;}
