@@ -46,6 +46,7 @@ pageArr.forEach((page) => {
         filename: 'views/'+page+'.html',
         template: 'views/'+page+'.html',
         inject: 'head',
+        hash: true,
         chunks: [page]
     });
   pluginsArr.push(htmlPlugin);
