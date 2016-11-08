@@ -54,7 +54,7 @@ var pageArr = [
     'main'
 ];
 pageArr.forEach((page) => {
-  var htmlPlugin = new HtmlWebpackPlugin({
+    var htmlPlugin = new HtmlWebpackPlugin({
         title: 'Custom template',
         filename: 'views/'+page+'.html',
         template: 'views/'+page+'.html',
@@ -62,7 +62,7 @@ pageArr.forEach((page) => {
         hash: true,
         chunks: [page]
     });
-  pluginsArr.push(htmlPlugin);
+    pluginsArr.push(htmlPlugin);
 });
 
 module.exports = {
