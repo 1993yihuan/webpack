@@ -1,5 +1,9 @@
 /**
  * heyihuan
+ * //Windows
+ * set NODE_ENV=test
+ * //Linux or OSX
+ * export NODE_ENV=test
  */
 var webpack = require('webpack');
 var path = require('path');
@@ -17,6 +21,12 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var API = {
+	test: 'http://test.api.xx.com',
+	pro: 'http://api.xx.com',
+	dev: 'http://dev.api.xx.com'
+};
+console.log(API[process.env.NODE_ENV]);
 //定义入口文件
 var entryArr = {
     main:'./js/main.js',
@@ -32,6 +42,9 @@ var pluginsArr = [
         jQuery:"jquery",
         "window.jQuery":"jquery"
     }),//全局jqury文件
+    new webpack.DefinePlugin({
+        baseUrl:JSON.stringify(API[process.env.NODE_ENV])
+    }),//配置全局变量
     // new CleanWebpackPlugin('dist')//清空输出文件夹
 ];
 

@@ -41,5 +41,11 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
     "webpack-sources": "^0.1.2"
-  }
+    },
+    "scripts": {
+        "build-dev":"sh webpack.sh dev",
+        "build-test":"sh webpack.sh test",
+        "build-pro":"sh webpack.sh pro"
+    }
+
 }
