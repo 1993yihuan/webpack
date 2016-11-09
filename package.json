@@ -4,7 +4,9 @@
   "description": "hyh beta webpack",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-dev": "sh webpack.sh dev",
+    "build-test": "sh webpack.sh test",
+    "build-pro": "sh webpack.sh pro"
   },
   "repository": {
     "type": "git",
@@ -39,13 +41,8 @@
     "postcss-simple-vars": "^3.0.0",
     "precss": "^1.4.0",
     "style-loader": "^0.13.1",
+    "util": "^0.10.3",
     "webpack": "^1.13.2",
     "webpack-sources": "^0.1.2"
-    },
-    "scripts": {
-        "build-dev":"sh webpack.sh dev",
-        "build-test":"sh webpack.sh test",
-        "build-pro":"sh webpack.sh pro"
-    }
-
+  }
 }
