@@ -29,7 +29,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 /*====================package文件====================*/
-
+const headerHtml =fs.readFileSync("views/header.html","utf-8");
+const footerHtml =fs.readFileSync("views/footer.html","utf-8");
 
 
 /*====================初始化对象====================*/
@@ -94,17 +95,18 @@ let pluginsArr = [
     new webpack.DefinePlugin({
         baseUrl:JSON.stringify(API[process.env.NODE_ENV])
     }),//配置全局变量
-    // new CleanWebpackPlugin('dist')//清空输出文件夹
+    new CleanWebpackPlugin('dist')//清空输出文件夹
 ];
 
 fs.readdirSync('views').forEach((page) => {
     var htmlPlugin = new HtmlWebpackPlugin({
-        title: 'Custom template',
         filename: 'views/'+page,
         template: 'views/'+page,
         inject: 'head',
         hash: true,
-        chunks: [page.replace('.html','')]
+        chunks: [page.replace('.html','')],
+		headerHtml: headerHtml,
+		footerHtml: footerHtml
     });
     pluginsArr.push(htmlPlugin);
 });

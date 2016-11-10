@@ -5,7 +5,7 @@ require('../part/part');
 require('../../lib/swiper.jquery.js');
 
 $(function(){
-    console.log(10);
+    console.log(11);
     $('.a').css('opacity',0.3);
     var swiper = new Swiper('.swiper-container',{
         autoplay : 5000
