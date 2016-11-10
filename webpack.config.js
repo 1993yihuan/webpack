@@ -1,9 +1,11 @@
 /**
  * heyihuan
- * //Windows
+ *
+ * Windows
  * set NODE_ENV=test
- * //Linux or OSX
+ * Linux or OSX
  * export NODE_ENV=test
+ *
  */
 'use strict';
 
@@ -92,7 +94,7 @@ let pluginsArr = [
     new webpack.DefinePlugin({
         baseUrl:JSON.stringify(API[process.env.NODE_ENV])
     }),//配置全局变量
-    new CleanWebpackPlugin('dist')//清空输出文件夹
+    // new CleanWebpackPlugin('dist')//清空输出文件夹
 ];
 
 fs.readdirSync('views').forEach((page) => {
