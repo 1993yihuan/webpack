@@ -115,9 +115,9 @@ fs.readdirSync('views').forEach((page) => {
 
 
 /*====================插件配置====================*/
-webpackObj.postcss = function () {
-	return [precss, autoprefixer, postcsscenter, postcssnested, postcssfor, postcsscalc, postcssvars ];
-}
+// webpackObj.postcss = function () {
+// 	return [precss, autoprefixer, postcsscenter, postcssnested, postcssfor, postcsscalc, postcssvars ];
+// }
 /*!====================插件配置====================*/
 
 
@@ -128,7 +128,10 @@ webpackObj = {
     entry: entryArr,
     output: output,
     module: moduleArr,
-    plugins: pluginsArr
+    plugins: pluginsArr,
+	postcss: function () {
+		return [precss, autoprefixer, postcsscenter, postcssnested, postcssfor, postcsscalc, postcssvars ];
+	}
 }
 /*!====================合并变量====================*/
 
