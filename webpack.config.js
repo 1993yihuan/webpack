@@ -64,7 +64,8 @@ fs.readdirSync('js/entry').forEach((page) => {
 let output = {
 	path: "./dist/", // 输出文件的保存路径
 	filename: 'js/[name].build.js', // 输出文件的名称
-	sourceMapFilename:'map/[file].map'
+	sourceMapFilename:'map/[file].map',
+	publicPath: "/"
 }
 /*!====================输出路径====================*/
 
@@ -76,6 +77,10 @@ let moduleArr = {
 		{
 			test:  /\.css$/,
 			loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader?sourceMap")
+		},
+		{
+			test: /\.(png|jpg)$/,
+　　　　　　	loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
 		}
 	]
 }

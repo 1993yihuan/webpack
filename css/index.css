@@ -47,7 +47,7 @@
 
 *{ background: #e6e6e6; margin: 0px; padding: 0px;}
 .a{
-    background: red;
+    background: url('../images/b.jpg');
     display: flex;
     font-size: 30px;
     .b{
